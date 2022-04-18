@@ -8,12 +8,18 @@ export default function Home() {
   return (
     <Wrapper>
       {address ? (
-        <Dashboard address={address} />
+        <Dashboard address='0x00a8D7317ef2fd8f3Fdd81CbD0984445660049A7' />
       ) : (
         <WalletConnect>
-          <Button onClick={() => connectWallet('injected')}>
-            Connect Wallet
-          </Button>
+          <Wrapper1>
+            <Button onClick={() => connectWallet('injected')}>
+              Connect Wallet
+            </Button>
+            <DemoButton onClick={() => connectWallet('injected')}>
+              Connect Demo
+            </DemoButton>
+          </Wrapper1>
+
           <Details>
             You need Chrome to be
             <br /> able to run this app.
@@ -32,6 +38,13 @@ const Wrapper = styled.div`
   color: white;
   display: grid;
   place-items: center;
+`;
+
+const Wrapper1 = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
 `;
 
 const WalletConnect = styled.div`
@@ -54,7 +67,19 @@ const Button = styled.div`
     cursor: pointer;
   }
 `;
+const DemoButton = styled.div`
+  border: 1px solid #282b2f;
+  padding: 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border-radius: 0.4rem;
+  background-color: #0a0b0d;
+  color: #282b2f;
 
+  &:hover {
+    cursor: pointer;
+  }
+`;
 const Details = styled.div`
   font-size: 1.2rem;
   text-align: center;
