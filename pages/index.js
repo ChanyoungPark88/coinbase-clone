@@ -1,31 +1,14 @@
 import styled from 'styled-components';
 import { useWeb3 } from '@3rdweb/hooks';
 import Dashboard from './Dashboard';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const { address, connectWallet } = useWeb3();
 
   return (
     <Wrapper>
-      {address ? (
-        <Dashboard address='0x00a8D7317ef2fd8f3Fdd81CbD0984445660049A7' />
-      ) : (
-        <WalletConnect>
-          <Wrapper1>
-            <Button onClick={() => connectWallet('injected')}>
-              Connect Wallet
-            </Button>
-            <DemoButton onClick={() => connectWallet('injected')}>
-              Connect Demo
-            </DemoButton>
-          </Wrapper1>
-
-          <Details>
-            You need Chrome to be
-            <br /> able to run this app.
-          </Details>
-        </WalletConnect>
-      )}
+      <Dashboard address='0x00a8D7317ef2fd8f3Fdd81CbD0984445660049A7' />
     </Wrapper>
   );
 }
